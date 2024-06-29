@@ -21,7 +21,7 @@ public class KafkaConsumer {
     ConsumerFactory<String, Object> consumerFactory() {
         final JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<>();
         jsonDeserializer.addTrustedPackages("*");
-        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties(), new StringDeserializer(), jsonDeserializer);
+        return new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties(null), new StringDeserializer(), jsonDeserializer);
     }
 
     @Bean
